@@ -1,0 +1,25 @@
+h1 {
+    background-color: crimson;
+    color:azure;
+}
+
+h1:hover{
+    background-color: gold;
+    color:azure;
+}
+
+section > p{
+    color:darkgreen;
+    font-weight: bold;
+}
+
+h3 {
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+}
+
+ol {
+    border: 1px solid crimson;
+    border-radius: 5px;
+}
