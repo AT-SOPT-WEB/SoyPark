@@ -3,8 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Soy's blog</title>
+        <title>소이의 블로그</title>
         <link rel="stylesheet" href="style.css" />
+        <script src="https://kit.fontawesome.com/0ab115aa0e.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header>
@@ -18,8 +19,8 @@
                 <h3 class="category">분류</h3>
                 <ul class="category-content">
                     <li class="category-item"><a href="#all">전체</a></li>
-                    <li class="category-item"><a href="#daily">일상</a></li>
-                    <li class="category-item"><a href="#develop">개발</a></li>
+                    <li class="category-item"><a href="#animal">동물</a></li>
+                    <li class="category-item"><a href="#cute">먼작귀</a></li>
                 </ul>
             </aside>
     
@@ -35,184 +36,247 @@
                     </div>
                 </section>
     
-                <!-- <section>
-                    <section id="all">
+                <section>
+                    <section id="all" class="category">
                         <h2>전체</h2>
-                        <div>
-                            <div>
-                                <img src="images/animal1.jpg" alt="">
-                                <p class="title">동물1</p>
+                        <div class="card-container">
+                            <div class="card">
+                                <img src="images/animal1.jpg" alt="일상1">
+                                <h3 class="title">쪼코푸들</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
-                                <img src="images/animal2.jpg" alt="">
-                                <p class="title">동물2</p>
+                            <div class="card">
+                                <img src="images/animal2.jpg" alt="일상2">
+                                <h3 class="title">아리예요</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
-                                <img src="images/animal3.jpg" alt="">
-                                <p class="title">동물3</p>
+                            <div class="card">
+                                <img src="images/animal3.jpg" alt="일상3">
+                                <h3 class="title">듀..</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
-                                <img src="images/animal4.jpg" alt="">
-                                <p class="title">동물4</p>
+                            <div class="card">
+                                <img src="images/animal4.jpg" alt="일상4">
+                                <h3 class="title">긍정이예요</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
-                                <img src="images/animal5.jpg" alt="">
-                                <p class="title">동물5</p>
+                            <div class="card">
+                                <img src="images/animal5.jpg" alt="일상5">
+                                <h3 class="title">튀르키예의 고양이</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
-                                <img src="images/animal6.jpg" alt="">
-                                <p class="title">동물6</p>
+                            <div class="card">
+                                <img src="images/animal6.jpg" alt="일상6">
+                                <h3 class="title">몽골의 아기 염소들</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
+                            <div class="card">
+                                <img src="images/animal7.jpg" alt="일상6">
+                                <h3 class="title">몽골의 방카르</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal8.jpg" alt="일상6">
+                                <h3 class="title">튀르키예 고양이2</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal9.jpg" alt="일상6">
+                                <h3 class="title">지우펀 푸데데</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
                                 <img src="images/cute1.jpg" alt="개발1">
-                                <p class="title">개발1</p>
+                                <h3 class="title">대만 팝업</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
+                            <div class="card">
                                 <img src="images/cute2.jpg" alt="개발2">
-                                <p class="title">개발1</p>
+                                <h3 class="title">대만 팝업</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
+                            <div class="card">
                                 <img src="images/cute3.jpg" alt="개발3">
-                                <p class="title">개발1</p>
+                                <h3 class="title">대만 팝업</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
+                            <div class="card">
                                 <img src="images/cute4.jpg" alt="개발4">
-                                <p class="title">개발1</p>
+                                <h3 class="title">똑똑한 하치와레</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
+                            <div class="card">
                                 <img src="images/cute5.jpg" alt="개발5">
-                                <p class="title">개발1</p>
+                                <h3 class="title">쿠리만쥬</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
+                            <div class="card">
                                 <img src="images/cute6.jpg" alt="개발6">
-                                <p class="title">개발1</p>
+                                <h3 class="title">자고싶은 우사기</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
-                            <div>
+                            <div class="card">
                                 <img src="images/cute7.jpg" alt="개발7">
-                                <p class="title">개발1</p>
+                                <h3 class="title">하치와레</h3>
                                 <p class="likes">좋아요 12개</p>
-                                <button class="heartBtn">🤍</button>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute8.jpg" alt="개발7">
+                                <h3 class="title">울먹이는 치이카와</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute9.jpg" alt="개발7">
+                                <h3 class="title">먼작귀 친구들</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
                             </div>
                         </div>
                     </section>
     
-                    <section id="daily">
-                        <h2>일상</h2>
-                        <div>
-                            <img src="images/animal1.jpg" alt="일상1">
-                            <p class="title">동물1</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/animal2.jpg" alt="일상2">
-                            <p class="title">동물2</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/animal3.jpg" alt="일상3">
-                            <p class="title">동물3</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/animal4.jpg" alt="일상4">
-                            <p class="title">동물4</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/animal5.jpg" alt="일상5">
-                            <p class="title">동물5</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/animal6.jpg" alt="일상6">
-                            <p class="title">동물6</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                    </section>
-    
-                    <section id="develop">
-                        <h2>개발</h2>
-                        <div>
-                            <img src="images/cute1.jpg" alt="개발1">
-                            <p class="title">개발1</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/cute2.jpg" alt="개발2">
-                            <p class="title">개발1</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/cute3.jpg" alt="개발3">
-                            <p class="title">개발1</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/cute4.jpg" alt="개발4">
-                            <p class="title">개발1</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/cute5.jpg" alt="개발5">
-                            <p class="title">개발1</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/cute6.jpg" alt="개발6">
-                            <p class="title">개발1</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
-                        </div>
-                        <div>
-                            <img src="images/cute7.jpg" alt="개발7">
-                            <p class="title">개발1</p>
-                            <p class="likes">좋아요 12개</p>
-                            <button class="heartBtn">🤍</button>
+                    <section id="animal" class="category">
+                        <h2>동물</h2>
+                        <div class="card-container">
+                            <div class="card">
+                                <img src="images/animal1.jpg" alt="일상1">
+                                <h3 class="title">쪼코푸들</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal2.jpg" alt="일상2">
+                                <h3 class="title">아리예요</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal3.jpg" alt="일상3">
+                                <h3 class="title">듀..</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal4.jpg" alt="일상4">
+                                <h3 class="title">긍정이예요</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal5.jpg" alt="일상5">
+                                <h3 class="title">튀르키예의 고양이</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal6.jpg" alt="일상6">
+                                <h3 class="title">몽골의 아기 염소들</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal7.jpg" alt="일상6">
+                                <h3 class="title">몽골의 방카르</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal8.jpg" alt="일상6">
+                                <h3 class="title">튀르키예 고양이2</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/animal9.jpg" alt="일상6">
+                                <h3 class="title">지우펀 푸데데</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
                         </div>
                     </section>
     
-                </section> -->
+                    <section id="cute" class="category">
+                        <h2>먼작귀</h2>
+                        <div class="card-container">
+                            <div class="card">
+                                <img src="images/cute1.jpg" alt="개발1">
+                                <h3 class="title">대만 팝업</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute2.jpg" alt="개발2">
+                                <h3 class="title">대만 팝업</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute3.jpg" alt="개발3">
+                                <h3 class="title">대만 팝업</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute4.jpg" alt="개발4">
+                                <h3 class="title">똑똑한 하치와레</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute5.jpg" alt="개발5">
+                                <h3 class="title">쿠리만쥬</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute6.jpg" alt="개발6">
+                                <h3 class="title">자고싶은 우사기</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute7.jpg" alt="개발7">
+                                <h3 class="title">하치와레</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute8.jpg" alt="개발7">
+                                <h3 class="title">울먹이는 치이카와</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                            <div class="card">
+                                <img src="images/cute9.jpg" alt="개발7">
+                                <h3 class="title">먼작귀 친구들</h3>
+                                <p class="likes">좋아요 12개</p>
+                                <i class="fa-solid fa-heart fa-lg"></i>
+                            </div>
+                        </div>
+                    </section>
+                </section>
             </main>
-    
         </div>
         
         <footer>
             ©AT SOPT WEB 1주차 과제
+            <br> 다들 화이팅!!
         </footer>
 
     </body>
