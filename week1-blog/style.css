@@ -125,7 +125,7 @@ main {
 
 /* grid - intro */
 .grid-wrapper {
-    padding: 15px 30px 40px 30px;
+    padding: 25px 50px 60px 50px;
     background-color: #C9CCD5;
     border-radius: 10px;
 }
@@ -139,7 +139,7 @@ main {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    grid-template-rows: repeat(3, 160px);
+    grid-template-rows: repeat(4, 140px);
     gap: 10px;
     width: 100%;
 }
@@ -161,12 +161,12 @@ main {
 
 #item4 {
     grid-column: 1 / 4;
-    grid-row: 3 / 4;
+    grid-row: 3 / 5;
 }
 
 #item5 {
     grid-column: 4 / 5;
-    grid-row: 3 / 4;
+    grid-row: 3 / 5;
 }
 
 /* category-common */
