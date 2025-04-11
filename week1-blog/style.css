@@ -1,10 +1,13 @@
-html, body {
+* {
+    box-sizing: border-box;
+}
+
+body {
     background-color:#93B5C6;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    width: 100%;
-    height: 100%;
+
 }
 
 header {
@@ -16,6 +19,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1; /* 최상단에 위치 */
 }
 
 #logo {
@@ -34,32 +38,38 @@ header h2 {
     font-size: large;
 }
 
+li {
+    list-style: none;
+}
+
 /*컨테이너*/
 .container {
     display: flex;
     width: 100%;
     height: auto;
     min-height: 100%;
-    padding: 30px;
+    padding: 30px 30px 50px 30px;
     margin-top: 50px;
 }
 
 /*사이드바*/
 aside {
-    position: fixed;
-    top: 100px;
-    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 140px;
-    height: 180px;
-    padding: 20px;
-    border-radius: 20px;
-    margin-right: 40px;
+    
+    position: fixed;
+    top: 100px;
+    background-color: #f4f4f4;
+    width: 160px;
+    padding: 10px 20px;
+    border-radius: 15px;
 }
 
+aside h3 {
+    margin: 20px 0 0 0;
+}
 
 .category-content {
     border-radius: 20px;
@@ -69,9 +79,7 @@ aside {
     justify-content: center;
     align-items: center;
     padding: 0;
-    gap: 10px;
     width: 100%;
-    list-style: none;
 }
 
 .category-item {
@@ -111,10 +119,9 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-left: 260px;
+    padding-left: 200px;
     margin-right: 60px;
 }
-
 
 /* grid - intro */
 .grid-wrapper {
@@ -239,37 +246,45 @@ section #animal, #cute, #all {
 
 /* 무한 배너 */
 @keyframes scroll {
-    from {
+    0% {
         transform: translateX(0);
     }
-    to {
+    100% {
         transform: translateX(-100%);
     }
 }
 
-.banner {
-    display: flex;
-    width: 100%;
-    height: 200px;
-    padding: 20px;
+.infinite-banner {
     margin-top: 30px;
-    overflow: hidden;
-    white-space: nowrap;
+    overflow: hidden;  /* 배너 영역 벗어나지 않게 */
 }
 
 .banner-slide {
     display: flex;
-    width: 100%;
-    animation: 10s scroll infinite linear;
+    padding: 0;
     gap: 10px;
 }
 
-.logos-slide img {
-    width: 50px;
-    height: 50px;
-    margin: 0 50px;
+.banner-items {
+    display: flex;
+    animation: scroll 15s linear infinite;
+    gap: 10px;
+    padding: 0;
+}
+
+.banner-items ul {
+    display: flex;
+    padding: 0;
+    gap: 10px;
+}
+
+.banner-slide img {
+    width: 170px;
+    height: 170px;
     object-fit: cover;
 }
+
+
 
 /* footer */
 footer {
@@ -278,8 +293,5 @@ footer {
     font-weight: bold;
     font-size: small;
     padding: 20px;
-
     width: 100%;
-    height: 30px;
-    position: relative;
 }
