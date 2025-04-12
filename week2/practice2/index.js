@@ -8,8 +8,9 @@ let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
 // 초기화 - 화면에 표시
 todos.forEach((todo) => {
+    const li = document.createElement('li');
     li.textContent = todo; 
-    todoList.appendChild(li); 
+    todoList.appendChild(li);
 });
 
 const buttonClick = () => {
@@ -18,7 +19,7 @@ const buttonClick = () => {
     if(!value) return;
 
     const text = document.querySelector('.todo-input').value; // input값을 text에 저장 
-    // console.log(text);
+    console.log(text);
 
     const li = document.createElement('li'); // li 생성
     todoList.appendChild(li); // ul의 자식으로 추가
