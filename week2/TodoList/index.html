@@ -8,66 +8,66 @@
     <script src="https://kit.fontawesome.com/0ab115aa0e.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- 필터 섹션 -->
     <div class="content-wrapper"> 
-            <!-- 필터 섹션 -->
-    <section class="filter-section">
-        <div class="filter-buttons">
-            <button id="filter-all">전체</button>
-            <button id="filter-complete">완료됨</button>
-            <button id="filter-incomplete">미완료</button>
+        <section class="filter-section">
+            <div class="filter-buttons">
+                <button id="filter-all">전체</button>
+                <button id="filter-complete">완료됨</button>
+                <button id="filter-incomplete">미완료</button>
 
-            <div class="dropdown-wrapper">
-                <button class="filter-btn" id="dropdown">
-                    중요도 <i class="fa-solid fa-caret-down"></i>
-                </button>
-                <div id="dropdown-menu">
-                    <div class="priority-item">1</div>
-                    <div class="priority-item">2</div>
-                    <div class="priority-item">3</div>
+                <div class="dropdown-wrapper">
+                    <button class="filter-btn" id="dropdown">
+                        중요도 <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div id="dropdown-menu">
+                        <div class="priority-item">1</div>
+                        <div class="priority-item">2</div>
+                        <div class="priority-item">3</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- 할 일 추가 + 테이블 -->
-    <main>
-        <!-- 입력창 -->
-        <section class="add-section">
-            <input type="text" id="todo-input" placeholder="할 일을 입력하세요" />
-            <select class="importance-select">
-                <option value="" disabled selected hidden>
-                    중요도 선택 <i class="fa-solid fa-caret-down"></i>
-                </option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-            <button id="add-btn">추가</button>
         </section>
 
-        <section class="state-change-btn">
-            <button class="del-btn">삭제</button>
-            <button class="com-btn">완료</button>
-        </section>
+        <!-- 할 일 추가 + 테이블 -->
+        <main>
+            <!-- 입력창 -->
+            <section class="add-section">
+                <input type="text" id="todo-input" placeholder="할 일을 입력하세요" />
+                
+                <select class="importance-select">
+                    <option value="" disabled selected hidden>
+                        중요도 선택 <i class="fa-solid fa-caret-down"></i>
+                    </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <button id="add-btn">추가</button>
+            </section>
 
-        <!-- 할 일 테이블 -->
-        <section class="table-section">
-            <table>
-                <thead>
-                    <tr>
-                        <th><input type="checkbox" id="check-all" /></th>
-                        <th>중요도</th>
-                        <th>완료됨</th>
-                        <th>할 일</th>
-                    </tr>
-                </thead>
-                <tbody id="todo-list"></tbody>
-            </table>
-        </section>
-    </main>
-    
-    <script type="module" src="index.js"></script>
+            <section class="state-change-btn">
+                <button class="del-btn">삭제</button>
+                <button class="com-btn">완료</button>
+            </section>
+
+            <!-- 할 일 테이블 -->
+            <section class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="check-all" /></th>
+                            <th>중요도</th>
+                            <th>완료됨</th>
+                            <th>할 일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="todo-list"></tbody>
+                </table>
+            </section>
+        </main>
+        
+        <script type="module" src="index.js"></script>
     </div>
-    
 </body>
 </html>
