@@ -40,35 +40,48 @@ button:hover {
     background-color: rgb(43, 94, 235);
 }
 
-/* .filter-buttons .dropdown-wrapper {
-  position: relative;
+/* 드롭다운 메뉴 */
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
-.filter-buttons .dropdown-wrapper:hover .dropdown-menu {
-  display: block;
+.filter-btn {
+    padding: 10px 20px;
+    background-color: #4d7cff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 36px;
-  left: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  list-style: none;
-  padding: 0;
-  width: 120px;
-  z-index: 99;
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 6px; 
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.dropdown-menu li {
-  padding: 10px;
-  cursor: pointer;
+#dropdown-menu div {
+    padding: 10px;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
 }
 
-.dropdown-menu li:hover {
-  background-color: #f0f0f0;
-} */
+#dropdown-menu div:hover {
+    background-color: #efeeee;
+}
+
 
 /* 메인 */
 main {
@@ -139,6 +152,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     min-width: 600px;
+    table-layout: fixed;
 }
 
 thead {
@@ -146,13 +160,17 @@ thead {
     color: white;
 }
 
-thead th {
+thead th, td {
     padding: 10px;
     text-align: center;
+    border: 1px solid #ddd;
 }
 
 tbody td {
-    padding: 10px;
-    text-align: center;
     border-bottom: 1px solid #eee;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
 }
