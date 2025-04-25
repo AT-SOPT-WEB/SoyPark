@@ -137,7 +137,7 @@ deleteBtn.addEventListener('click', () => {
     // todos에서 삭제할 ID 제외하고 filter
     todos = todos.filter(todo => !idsToDelete.includes(todo.id));
     alert("삭제 완료!");
-    
+
     localStorage.setItem('todos', JSON.stringify(todos));
     renderTodos(todos);
 })
@@ -166,14 +166,12 @@ todoList.addEventListener('change', () => {
     selectAllCheckbox.checked = allChecked;
 });
 
-
 // 모달 닫기 버튼
 modalCloseBtn.addEventListener('click', () => {
     modal.style.display = 'none';  
 });
 
 renderTodos(todos);
-
 
 // 상단 필터링
 function filterTodos(type) {
