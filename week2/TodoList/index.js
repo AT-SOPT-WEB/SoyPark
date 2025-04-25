@@ -34,6 +34,9 @@ function renderTodos(todos) {
 function createTodos(todo) {
     const tr = document.createElement("tr");
 
+    tr.setAttribute("draggable", "true");
+    tr.setAttribute("data-id", todo.id); // 드래그 요소 알기 위한 속성 
+
     tr.innerHTML = `
         <td><input type="checkbox" class="todo-checkbox" data-id="${todo.id}"/></td>
         <td>${todo.priority}</td>
@@ -150,4 +153,40 @@ todoList.addEventListener('change', () => {
     });
 
     selectAllCheckbox.checked = allChecked;
+});
+
+// drag&drop
+let draggedRow = null; // 드래그 요소 저장 
+
+todoList.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'TR') {
+        draggedRow = e.target; 
+    }
+});
+
+todoList.addEventListener('dragover', (e) => {
+    e.preventDefault(); 
+
+    const targetRow = e.target.closest('tr');
+    if (targetRow && targetRow !== draggedRow) {
+        const bounding = targetRow.getBoundingClientRect(); // 위치계산
+        const offset = e.clientY - bounding.top;
+        
+        if (offset > bounding.height / 2) { // 아래 
+            targetRow.after(draggedRow);
+        } else {
+            targetRow.before(draggedRow);
+        }
+    }
+});
+
+todoList.addEventListener('drop', () => {
+    const newOrder = [];
+    todoList.querySelectorAll('tr').forEach(tr => {
+        const id = Number(tr.dataset.id);
+        const todo = todos.find(t => t.id === id); // id로 todo 찾기 
+        if (todo) newOrder.push(todo);
+    });
+    todos = newOrder;
+    localStorage.setItem("todos", JSON.stringify(todos));
 });
