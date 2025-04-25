@@ -93,7 +93,7 @@ addBtn.addEventListener('click', () => {
 completeBtn.addEventListener('click', () => {
     const selectedCheckboxes = document.querySelectorAll('.todo-checkbox:checked');
     let hasCompletedTodo = false;
-    
+
     for (let checkbox of selectedCheckboxes) {
         const tr = checkbox.closest('tr');
         const todoId = Number(tr.dataset.id);
@@ -123,6 +123,24 @@ completeBtn.addEventListener('click', () => {
 });
 
 // 삭제
+deleteBtn.addEventListener('click', () => {
+    const selectedCheckboxes = document.querySelectorAll('.todo-checkbox:checked');
+    if (selectedCheckboxes.length === 0) return;
+
+    const idsToDelete = [];
+    for (let checkbox of selectedCheckboxes) {
+        const tr = checkbox.closest('tr');
+        const todoId = Number(tr.dataset.id);
+        idsToDelete.push(todoId);
+    }
+
+    // todos에서 삭제할 ID 제외하고 filter
+    todos = todos.filter(todo => !idsToDelete.includes(todo.id));
+    alert("삭제 완료!");
+    
+    localStorage.setItem('todos', JSON.stringify(todos));
+    renderTodos(todos);
+})
 
 
 // 전체 체크박스
