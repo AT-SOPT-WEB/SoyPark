@@ -13,6 +13,12 @@ const todoInput = document.getElementById('todo-input');
 const importanceSelect = document.querySelector('.importance-select'); 
 const addBtn = document.getElementById('add-btn');
 
+const completeBtn = document.querySelector('.com-btn');
+const deleteBtn = document.querySelector('.del-btn');
+
+const modal = document.getElementById('modal');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+
 // 로컬스토리지에서 가져오기
 let todos = JSON.parse(localStorage.getItem('todos'));
 
@@ -83,6 +89,70 @@ addBtn.addEventListener('click', () => {
     todoInput.placeholder = '할 일을 입력하세요';
 });
 
+// 완료
+completeBtn.addEventListener('click', () => {
+    const selectedCheckboxes = document.querySelectorAll('.todo-checkbox:checked');
+    let hasCompletedTodo = false;
+    
+    for (let checkbox of selectedCheckboxes) {
+        const tr = checkbox.closest('tr');
+        const todoId = Number(tr.dataset.id);
+        const todo = todos.find(todo => todo.id === todoId);
+
+        if (todo.completed) {
+            hasCompletedTodo = true;
+            break; 
+        }
+    }
+
+    if (hasCompletedTodo) {
+        modal.style.display = 'flex'; 
+        return; 
+    }
+
+    // 완료 처리 
+    selectedCheckboxes.forEach(checkbox => {
+        const tr = checkbox.closest('tr');
+        const todoId = Number(tr.dataset.id);
+        const todo = todos.find(todo => todo.id === todoId);
+        todo.completed = true;
+    });
+
+    localStorage.setItem('todos', JSON.stringify(todos));
+    renderTodos(todos); 
+});
+
+// 삭제
+
+
+// 전체 체크박스
+selectAllCheckbox.addEventListener('change', (e) => {
+    const isChecked = e.target.checked; // 전체 체크박스 상태 
+    
+    const checkBox = todoList.querySelectorAll('.todo-checkbox');
+    checkBox.forEach(checkbox => {
+        checkbox.checked = isChecked;
+    });
+});
+
+todoList.addEventListener('change', () => {
+    const checkBox = document.querySelectorAll('.todo-checkbox');
+    let allChecked = true;  
+
+    checkBox.forEach(checkbox => {
+        if (!checkbox.checked) {
+            allChecked = false;
+        }
+    });
+
+    selectAllCheckbox.checked = allChecked;
+});
+
+
+// 모달 닫기 버튼
+modalCloseBtn.addEventListener('click', () => {
+    modal.style.display = 'none';  
+});
 
 renderTodos(todos);
 
@@ -131,29 +201,6 @@ function filterPriority(priority) {
     const filtered = todos.filter(todo => todo.priority.toString() === priority); 
     renderTodos(filtered);
 }
-
-// 전체 체크박스
-selectAllCheckbox.addEventListener('change', (e) => {
-    const isChecked = e.target.checked; // 전체 체크박스 상태 
-    
-    const checkBox = todoList.querySelectorAll('.todo-checkbox');
-    checkBox.forEach(checkbox => {
-        checkbox.checked = isChecked;
-    });
-});
-
-todoList.addEventListener('change', () => {
-    const checkBox = document.querySelectorAll('.todo-checkbox');
-    let allChecked = true;  
-
-    checkBox.forEach(checkbox => {
-        if (!checkbox.checked) {
-            allChecked = false;
-        }
-    });
-
-    selectAllCheckbox.checked = allChecked;
-});
 
 // drag&drop
 let draggedRow = null; // 드래그 요소 저장 
