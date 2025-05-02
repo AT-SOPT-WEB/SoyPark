@@ -1,11 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from 'react';
-import { BodyWrapperStyle } from '../CommonStyle';
+import { BodyWrapperStyle, ResultMessage } from '../CommonStyle';
 import CommonInput from '../../components/CommonInput';
 import * as G from './GitHubStyle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { LoadingSpinner } from '../../components/Spinner';
 
 
 function GithubPage() {
@@ -74,7 +75,7 @@ function GithubPage() {
                         {recentSearches.map((keyword) => (
                         <li css={G.RecentItem} key={keyword}>
                             <span onClick={() => getUserInfo(keyword)}>{keyword}</span>
-                            <button css={G.searchBtn} onClick={() => removeSearch(keyword)}>✕</button>
+                            <button css={G.removeBtn} onClick={() => removeSearch(keyword)}>✕</button>
                         </li>
                         ))}
                     </ul>
@@ -101,6 +102,14 @@ function GithubPage() {
                         </div>
                     </div>
                 </article>
+            )}
+
+            {userInfo.status === 'rejected' && (
+                <h3 css={ResultMessage}>검색 결과가 없습니다.</h3>
+            )}
+
+            {userInfo.status === 'pending' && (
+                <LoadingSpinner />
             )}
         </main>
     )

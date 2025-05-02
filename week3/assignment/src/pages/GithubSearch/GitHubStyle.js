@@ -7,8 +7,8 @@ export const ProfileWrapper = css`
     align-items: center;
     margin-top: 40px;
     padding: 18px;
-    width: 40%;
-    height: 45%;
+    width: 30%;
+    height: 50%;
 
     border-radius: 15px;
     background-color:rgb(14, 40, 31);
@@ -54,7 +54,7 @@ export const FollowWrapper = css`
     align-items: space-around;
     width: 100%;
     height: 50px;
-    margin-top: 40px;
+    margin-top: auto;
     gap: 5px;
 `
 
@@ -103,11 +103,12 @@ export const RecentItem = css`
     padding: 10px;
 `
 
-export const searchBtn = css`
+export const removeBtn = css`
     border: none;
     background: none;
     font-weight: bold;
     font-size: 13px;
+    margin-left: 5px;
 
     &:hover {
         color:rgb(239, 51, 51);

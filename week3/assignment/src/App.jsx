@@ -25,5 +25,5 @@ export default App;
 
 const ContentWrapper = css`
   display: flex;
-  height: 100vh;
+  height: 80vh;
 `
