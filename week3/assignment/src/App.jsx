@@ -1,16 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import Header from './components/Header';
+import GithubPage from './pages/GithubPage';
+import NumberBasePage from './pages/NumberBaseballPage';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeTab, setActiveTab] = useState('github');
 
   return (
-    <>
-
-    </>
-  )
+    <div>
+      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      {activeTab === 'github' ? <GithubPage /> : <NumberBasePage />}
+    </div>
+  );
 }
 
-export default App
+export default App;
+
