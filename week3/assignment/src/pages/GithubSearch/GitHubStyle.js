@@ -83,3 +83,45 @@ export const FollowNum = css`
     margin: 0;
 `
 
+export const SearchListWrapper = css`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0;
+    width: 50%;
+    gap: 15px;
+    margin-top: 20px;
+`
+export const RecentSearchContainer = css`
+    display: flex;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+`
+
+export const RecentItem = css`
+    border: 2px solid #90C67C;
+    border-radius: 25px;
+    background-color:rgba(144, 198, 124, 0.58);
+
+    padding: 10px;
+    cursor: pointer;
+`
+
+export const searchBtn = css`
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 13px;
+
+    &:hover {
+        color:rgb(239, 51, 51);
+    }
+`
+
+export const RecentHeaderText = css`
+    margin: 0;
+`
