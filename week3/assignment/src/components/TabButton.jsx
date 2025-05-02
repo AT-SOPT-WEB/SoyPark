@@ -15,14 +15,14 @@ const tabStyle = (isActive) => css`
     font-weight: bold;
     background: ${isActive ? '#333' : '#90C67C'};
     color: ${isActive ? 'white' : 'black'};
+    transition: background 0.2s;
     border: none;
     border-radius: 4px;
-
-    gap: 10px;
     cursor: pointer;
 
     &:hover {
         background: ${isActive ? '#555' : '#ddd'};
+        transition: background 0.2s;
     }
 `;
 

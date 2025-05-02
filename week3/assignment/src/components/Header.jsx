@@ -33,6 +33,7 @@ const headerStyle = css`
     text: white;
     background-color: #67AE6E;
     gap: 20px;
+    margin-bottom: 10px;
 `;
 
 const headTextStyle = css`

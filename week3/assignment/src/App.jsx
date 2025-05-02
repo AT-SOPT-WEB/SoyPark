@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import GithubPage from './pages/GithubPage';
-import NumberBasePage from './pages/NumberBaseballPage';
+import NumberBasePage from './pages/NumberBaseBall/NumberBaseballPage';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 
 
 function App() {
@@ -10,10 +12,16 @@ function App() {
   return (
     <div>
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
-      {activeTab === 'github' ? <GithubPage /> : <NumberBasePage />}
+      <div css={ContentWrapper}>
+        {activeTab === 'github' ? <GithubPage /> : <NumberBasePage />}
+      </div>
     </div>
   );
 }
 
 export default App;
 
+const ContentWrapper = css`
+  display: flex;
+  height: 80vh;
+`
