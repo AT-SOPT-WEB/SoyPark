@@ -4,6 +4,7 @@ import GithubPage from './pages/GithubSearch/GithubPage';
 import NumberBasePage from './pages/NumberBaseBall/NumberBaseballPage';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import GlobalStyle from './styles/GlobalStyle'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <div>
+      <GlobalStyle />
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
       <div css={ContentWrapper}>
         {activeTab === 'github' ? <GithubPage /> : <NumberBasePage />}

@@ -8,9 +8,9 @@ export const BodyWrapperStyle = css`
     justify-content: center;
     flex: 1;
     overflow-y: auto;
-
 `
 
 export const ResultMessage = css`
+    margin-top: 15px;
     color: #328E6E;
 `

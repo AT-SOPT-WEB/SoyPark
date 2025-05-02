@@ -20,6 +20,7 @@ const inputStyle = css`
     border-radius: 20px;
     border: 1px solid #328E6E;
     background-color: #E1EEBC;
+    margin-top: 30px;
 `;
 
 export default CommonInput;

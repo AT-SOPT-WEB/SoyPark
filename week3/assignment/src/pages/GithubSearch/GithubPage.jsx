@@ -57,8 +57,9 @@ function GithubPage() {
     };
 
     return(
-        <div css={BodyWrapperStyle}>
+        <main css={BodyWrapperStyle}>
             <h2>GitHub 프로필 검색</h2>
+
             <CommonInput
                 value={inputValue}
                 onChange={handleChange}
@@ -66,22 +67,22 @@ function GithubPage() {
                 placeholder="GitHub 프로필을 검색해보세요."
             />
 
-            <div css={G.SearchListWrapper}>
+            <section css={G.SearchListWrapper}>
                 <h4 css={G.RecentHeaderText}>최근 검색어</h4>
                 {recentSearches.length > 0 && (
                     <ul css={G.RecentSearchContainer}>
                         {recentSearches.map((keyword) => (
-                        <div css={G.RecentItem} key={keyword}>
+                        <li css={G.RecentItem} key={keyword}>
                             <span onClick={() => getUserInfo(keyword)}>{keyword}</span>
                             <button css={G.searchBtn} onClick={() => removeSearch(keyword)}>✕</button>
-                        </div>
+                        </li>
                         ))}
                     </ul>
                 )}
-            </div>
+            </section>
             
             {userInfo.status === 'resolved' && (
-                <div css={G.ProfileWrapper}>
+                <article css={G.ProfileWrapper}>
                     <FontAwesomeIcon icon={faTimes} onClick={handleClose} css={G.iconStyle}/>
                     <a href={userInfo.data.html_url}>
                         <img src={userInfo.data.avatar_url} css={G.profileImg} />
@@ -99,10 +100,9 @@ function GithubPage() {
                             <p css={G.FollowNum}>{userInfo.data.following}</p>
                         </div>
                     </div>
-                    
-                </div>
+                </article>
             )}
-        </div>
+        </main>
     )
 }
 

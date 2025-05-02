@@ -7,11 +7,12 @@ export const ProfileWrapper = css`
     align-items: center;
     margin-top: 40px;
     padding: 18px;
-    width: 45%;
-    height: 50%;
+    width: 40%;
+    height: 45%;
 
     border-radius: 15px;
     background-color:rgb(14, 40, 31);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 `
 
 export const iconStyle = css`
@@ -46,15 +47,14 @@ export const ProfileId = css`
 
 export const ProfileBio = css`
     font-size: 15px;
-    margin: 0;
 `
 export const FollowWrapper = css`
     display: flex;
     flex-direction: row;
     align-items: space-around;
     width: 100%;
-    height: 60px;
-    margin-top: 50px;
+    height: 50px;
+    margin-top: 40px;
     gap: 5px;
 `
 
@@ -73,14 +73,12 @@ export const FollowContainer = css`
 export const FollowText = css`
     font-size: 15px;
     color: white;
-    margin: 0;
 `
 
 export const FollowNum = css`
     font-size: 13px;
     font-weight: bold;
     color: white;
-    margin: 0;
 `
 
 export const SearchListWrapper = css`
@@ -88,17 +86,13 @@ export const SearchListWrapper = css`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: 0;
     width: 50%;
     gap: 15px;
     margin-top: 20px;
 `
 export const RecentSearchContainer = css`
     display: flex;
-    list-style: none;
     text-align: center;
-    margin: 0;
-    padding: 0;
     gap: 10px;
 `
 
@@ -106,9 +100,7 @@ export const RecentItem = css`
     border: 2px solid #90C67C;
     border-radius: 25px;
     background-color:rgba(144, 198, 124, 0.58);
-
     padding: 10px;
-    cursor: pointer;
 `
 
 export const searchBtn = css`
@@ -122,6 +114,3 @@ export const searchBtn = css`
     }
 `
 
-export const RecentHeaderText = css`
-    margin: 0;
-`
