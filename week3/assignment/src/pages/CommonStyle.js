@@ -1,13 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
-export const GameWrapperStyle = css`
+export const BodyWrapperStyle = css`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     flex: 1;
-    margin-top: 50px;
+    overflow-y: auto;
+
 `
 
 export const ResultMessage = css`

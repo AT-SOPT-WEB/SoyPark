@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from 'react';
 import CommonInput from '../../components/CommonInput';
-import { GameWrapperStyle, ResultMessage } from './NumBaseStyle';
+import { BodyWrapperStyle, ResultMessage } from '../CommonStyle';
 import ResultList from './ResultList';
 
 // 숫자 랜덤 생성 
@@ -40,7 +40,7 @@ function NumberBasePage() {
     const [resultList, setResultList] = useState([]);
     const [attemptCount, setAttemptCount] = useState(0);
 
-    console.log(answer); // 정답 
+    // console.log(answer); // 정답 
 
     const handleChange = (e) => {
         setnumberInput(e.target.value);
@@ -85,7 +85,7 @@ function NumberBasePage() {
     };
 
     return(
-        <div css={GameWrapperStyle}>
+        <div css={BodyWrapperStyle}>
             <h2>잠들면 안돼... 나랑 야구 게임 하자..</h2>
             <CommonInput
                 value={numberInput}

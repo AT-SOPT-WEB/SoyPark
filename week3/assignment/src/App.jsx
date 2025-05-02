@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from './components/Header';
-import GithubPage from './pages/GithubPage';
+import GithubPage from './pages/GithubSearch/GithubPage';
 import NumberBasePage from './pages/NumberBaseBall/NumberBaseballPage';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
@@ -23,5 +23,5 @@ export default App;
 
 const ContentWrapper = css`
   display: flex;
-  height: 80vh;
+  height: 100vh;
 `
