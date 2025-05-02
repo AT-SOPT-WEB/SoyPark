@@ -19,7 +19,7 @@ const ListWrapper = css`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 95%;
     gap: 15px;
     margin-top: 30px;
 `;

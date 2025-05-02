@@ -3,44 +3,17 @@ import { useState } from 'react';
 import CommonInput from '../../components/CommonInput';
 import { BodyWrapperStyle, ResultMessage } from '../CommonStyle';
 import ResultList from './ResultList';
-
-// 숫자 랜덤 생성 
-function generateAnswer() {
-    const digits = [];
-    while (digits.length < 3) {
-        const rand = Math.floor(Math.random() * 10); // 0~9
-        if (!digits.includes(rand)) {
-            digits.push(rand);
-        }
-    }
-    return digits.map(String);
-}
-
-// 판정 
-function getResult(input, answer) {
-    let strike = 0;
-    let ball = 0;
-
-    input.split('').forEach((num, idx) => {
-        if (num === answer[idx]) {
-            strike++;
-        } else if (answer.includes(num)) {
-            ball++;
-        }
-    });
-
-    if (strike === 0 && ball === 0) return 'OUT';
-    return `${strike}스트라이크   ${ball}볼`;
-}
+import getResult from './getResult';
+import GenerateAnswer from './NumberGenerater';
 
 function NumberBasePage() {
     const [numberInput, setnumberInput] = useState('');
-    const [answer, setAnswer] = useState(generateAnswer());
+    const [answer, setAnswer] = useState(GenerateAnswer);
     const [message, setMessage] = useState('');
     const [resultList, setResultList] = useState([]);
     const [attemptCount, setAttemptCount] = useState(0);
 
-    // console.log(answer); // 정답 
+    console.log(answer); // 정답 
 
     const handleChange = (e) => {
         setnumberInput(e.target.value);
@@ -48,7 +21,7 @@ function NumberBasePage() {
 
     // 게임 초기화 
     const resetGame = () => {
-        setAnswer(generateAnswer()); 
+        setAnswer(GenerateAnswer); 
         setResultList([]);              
         setMessage('');              
         setnumberInput(''); 
