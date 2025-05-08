@@ -20,10 +20,21 @@ const modal = document.getElementById('modal');
 const modalCloseBtn = document.getElementById('modal-close-btn');
 
 // 로컬스토리지에서 가져오기
-let todos = JSON.parse(localStorage.getItem('todos'));
+const STORAGE_KEY = 'todos';
+
+function setItem(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+function getItem(key) {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : null;
+}
+
+let todos = getItem(STORAGE_KEY);
 
 if (!todos) {
-    localStorage.setItem("todos", JSON.stringify(dataTodos));
+    setItem(STORAGE_KEY, dataTodos);
     todos = dataTodos;
 }
 
@@ -39,16 +50,34 @@ function renderTodos(todos) {
 // todo 생성
 function createTodos(todo) {
     const tr = document.createElement("tr");
-
     tr.setAttribute("draggable", "true");
     tr.setAttribute("data-id", todo.id); // 드래그 요소 알기 위한 속성 
 
-    tr.innerHTML = `
-        <td><input type="checkbox" class="todo-checkbox" data-id="${todo.id}"/></td>
-        <td>${todo.priority}</td>
-        <td>${todo.completed ? "✅" : "❌"}</td>
-        <td>${todo.title}</td>
-    `;
+    // 체크박스 
+    const checkboxTd = document.createElement("td");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("todo-checkbox");
+    checkbox.dataset.id = todo.id;
+    checkboxTd.appendChild(checkbox);
+
+    // 중요도 
+    const priorityTd = document.createElement("td");
+    priorityTd.textContent = todo.priority;
+
+    // 완료 여부 
+    const completedTd = document.createElement("td");
+    completedTd.textContent = todo.completed ? "✅" : "❌";
+
+    // 할 일 제목 
+    const titleTd = document.createElement("td");
+    titleTd.textContent = todo.title;
+
+    // tr에 모든 td 추가
+    tr.appendChild(checkboxTd);
+    tr.appendChild(priorityTd);
+    tr.appendChild(completedTd);
+    tr.appendChild(titleTd);
 
     return tr;
 }
@@ -62,7 +91,7 @@ function getNextId(todos) {
 }
 
 // input으로 할 일 추가 
-addBtn.addEventListener('click', () => {
+function handleAddTodo() {
     const title = todoInput.value.trim();
     const priority = importanceSelect.value;
 
@@ -79,7 +108,7 @@ addBtn.addEventListener('click', () => {
     };
 
     todos.push(newTodo);
-    localStorage.setItem('todos', JSON.stringify(todos));
+    setItem(STORAGE_KEY, todos);
 
     renderTodos(todos);
 
@@ -87,7 +116,7 @@ addBtn.addEventListener('click', () => {
     todoInput.value = '';
     importanceSelect.value = ''; 
     todoInput.placeholder = '할 일을 입력하세요';
-});
+};
 
 // tr 요소 찾기 
 function findTR(checkbox){
@@ -95,20 +124,18 @@ function findTR(checkbox){
 }
 
 // 완료
-completeBtn.addEventListener('click', () => {
+function handleCompleteTodo() {
     const selectedCheckboxes = document.querySelectorAll('.todo-checkbox:checked');
-    let hasCompletedTodo = false;
 
-    for (let checkbox of selectedCheckboxes) {
+    // 선택된 체크박스들을 todo 객체로 한 번에 매핑
+    const selectedTodos = Array.from(selectedCheckboxes).map(checkbox => {
         const tr = findTR(checkbox);
         const todoId = Number(tr.dataset.id);
-        const todo = todos.find(todo => todo.id === todoId);
+        return todos.find(todo => todo.id === todoId);
+    });
 
-        if (todo.completed) {
-            hasCompletedTodo = true;
-            break; 
-        }
-    }
+    // 이미 완료된 todo가 있는지 
+    const hasCompletedTodo = selectedTodos.some(todo => todo.completed);
 
     if (hasCompletedTodo) {
         modal.showModal();
@@ -116,60 +143,62 @@ completeBtn.addEventListener('click', () => {
     }
 
     // 완료 처리 
-    selectedCheckboxes.forEach(checkbox => {
-        const tr = findTR(checkbox);
-        const todoId = Number(tr.dataset.id);
-        const todo = todos.find(todo => todo.id === todoId);
+    selectedTodos.forEach(todo => {
         todo.completed = true;
     });
 
-    localStorage.setItem('todos', JSON.stringify(todos));
+    setItem(STORAGE_KEY, todos);
     renderTodos(todos); 
-});
+};
 
 // 삭제
-deleteBtn.addEventListener('click', () => {
+function handleDeleteTodo() {
     const selectedCheckboxes = document.querySelectorAll('.todo-checkbox:checked');
     if (selectedCheckboxes.length === 0) return;
 
-    const idsToDelete = [];
-    for (let checkbox of selectedCheckboxes) {
+    const idsToDelete = Array.from(selectedCheckboxes).map(checkbox => {
         const tr = findTR(checkbox);
         const todoId = Number(tr.dataset.id);
-        idsToDelete.push(todoId);
-    }
-
+        return todoId;
+    });
+    
     // todos에서 삭제할 ID 제외하고 filter
     todos = todos.filter(todo => !idsToDelete.includes(todo.id));
     alert("삭제 완료!");
 
-    localStorage.setItem('todos', JSON.stringify(todos));
+    setItem(STORAGE_KEY, todos);
     renderTodos(todos);
-})
+};
 
 
 // 전체 체크박스
-selectAllCheckbox.addEventListener('change', (e) => {
+function handleSelectAllChange() {
     const isChecked = e.target.checked; // 전체 체크박스 상태 
     
     const checkBox = todoList.querySelectorAll('.todo-checkbox');
     checkBox.forEach(checkbox => {
         checkbox.checked = isChecked;
     });
-});
+};
 
-todoList.addEventListener('change', () => {
-    const checkBox = document.querySelectorAll('.todo-checkbox');
+function handleCheckboxSync() {
+    const checkBoxes = document.querySelectorAll('.todo-checkbox');
     let allChecked = true;  
 
-    checkBox.forEach(checkbox => {
-        if (!checkbox.checked) {
+    checkBoxes.forEach(checkBoxes => {
+        if (!checkBoxes.checked) {
             allChecked = false;
         }
     });
 
     selectAllCheckbox.checked = allChecked;
-});
+};
+
+addBtn.addEventListener('click', handleAddTodo);
+completeBtn.addEventListener('click', handleCompleteTodo);
+deleteBtn.addEventListener('click', handleDeleteTodo);
+selectAllCheckbox.addEventListener('change', handleSelectAllChange);
+todoList.addEventListener('change', handleCheckboxSync);
 
 // 모달 닫기 버튼
 modalCloseBtn.addEventListener('click', () => {
@@ -203,8 +232,7 @@ const toggleBtn = document.getElementById("dropdown");
 const dropdownMenu = document.getElementById("dropdown-menu");
 
 toggleBtn.addEventListener("click", () => {
-    dropdownMenu.style.display = 
-        dropdownMenu.style.display === "block" ? "none" : "block";
+    dropdownMenu.classList.toggle("hidden");
 });
 
 let dropdownItems = dropdownMenu.querySelectorAll(".priority-item");
@@ -256,5 +284,5 @@ todoList.addEventListener('drop', () => {
         if (todo) newOrder.push(todo);
     });
     todos = newOrder;
-    localStorage.setItem("todos", JSON.stringify(todos));
+    setItem(STORAGE_KEY, todos);
 });

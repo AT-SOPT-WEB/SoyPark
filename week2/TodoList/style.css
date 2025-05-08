@@ -8,6 +8,23 @@ body {
     justify-content: center;
 }
 
+button,
+.btn {
+    padding: 8px 15px;
+    background-color: #4d7cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    background-color: rgb(43, 94, 235);
+}
+
 .content-wrapper {
     display: flex;
     flex-direction: column;
@@ -26,21 +43,11 @@ body {
     gap: 10px;
 }
 
-.filter-buttons button {
-    padding: 8px 15px;
-    background-color: #4d7cff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: rgb(43, 94, 235);
-}
-
 /* 드롭다운 메뉴 */
+.hidden {
+    display: none;
+}
+
 .dropdown-wrapper {
     position: relative;
     display: inline-block;
@@ -48,16 +55,10 @@ button:hover {
 
 .filter-btn {
     padding: 10px 20px;
-    background-color: #4d7cff;
-    color: white;
-    border: none;
     border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 #dropdown-menu {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -113,13 +114,8 @@ main {
 }
 
 #add-btn {
-    background-color: #4d7cff;
-    color: white;
     padding: 4px 13px;
-    border: none;
     border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
     height: 30px;
 }
 
@@ -133,13 +129,8 @@ main {
 
 .del-btn,
 .com-btn {
-    background-color: #4d7cff;
-    color: white;
     padding: 6px 12px;
-    border: none;
     border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 /* 테이블 */
@@ -212,14 +203,6 @@ dialog::backdrop {
 }
 
 #modal-close-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
     padding: 6px;
     border-radius: 5px;
-    cursor: pointer;
-}
-
-#modal-close-btn:hover {
-    background-color: #0056b3;
 }
