@@ -89,13 +89,18 @@ addBtn.addEventListener('click', () => {
     todoInput.placeholder = '할 일을 입력하세요';
 });
 
+// tr 요소 찾기 
+function findTR(checkbox){
+    return checkbox.closest('tr');
+}
+
 // 완료
 completeBtn.addEventListener('click', () => {
     const selectedCheckboxes = document.querySelectorAll('.todo-checkbox:checked');
     let hasCompletedTodo = false;
 
     for (let checkbox of selectedCheckboxes) {
-        const tr = checkbox.closest('tr');
+        const tr = findTR(checkbox);
         const todoId = Number(tr.dataset.id);
         const todo = todos.find(todo => todo.id === todoId);
 
@@ -106,13 +111,13 @@ completeBtn.addEventListener('click', () => {
     }
 
     if (hasCompletedTodo) {
-        modal.style.display = 'flex'; 
+        modal.showModal();
         return; 
     }
 
     // 완료 처리 
     selectedCheckboxes.forEach(checkbox => {
-        const tr = checkbox.closest('tr');
+        const tr = findTR(checkbox);
         const todoId = Number(tr.dataset.id);
         const todo = todos.find(todo => todo.id === todoId);
         todo.completed = true;
@@ -129,7 +134,7 @@ deleteBtn.addEventListener('click', () => {
 
     const idsToDelete = [];
     for (let checkbox of selectedCheckboxes) {
-        const tr = checkbox.closest('tr');
+        const tr = findTR(checkbox);
         const todoId = Number(tr.dataset.id);
         idsToDelete.push(todoId);
     }
@@ -168,7 +173,7 @@ todoList.addEventListener('change', () => {
 
 // 모달 닫기 버튼
 modalCloseBtn.addEventListener('click', () => {
-    modal.style.display = 'none';  
+    modal.close(); 
 });
 
 renderTodos(todos);
