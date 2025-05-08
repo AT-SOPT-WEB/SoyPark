@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+button,
+.btn {
+    padding: 8px 15px;
+    background-color: #4d7cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    background-color: rgb(43, 94, 235);
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+}
+
+.filter-section {
+    margin-bottom: 30px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* 드롭다운 메뉴 */
+.hidden {
+    display: none;
+}
+
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+#dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 6px; 
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+    min-width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#dropdown-menu div {
+    padding: 10px;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#dropdown-menu div:hover {
+    background-color: #efeeee;
+}
+
+
+/* 메인 */
+main {
+    background-color: #f5f5f5;
+    padding: 30px 15px;
+    border-radius: 15px;
+}
+
+/* 입력창 섹션 */
+.add-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    flex: 1;
+}
+
+.importance-select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+#add-btn {
+    padding: 4px 13px;
+    border-radius: 4px;
+    height: 30px;
+}
+
+/* 삭제, 완료 버튼 */
+.state-change-btn {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.del-btn,
+.com-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* 테이블 */
+.table-section {
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 600px;
+    table-layout: fixed;
+}
+
+thead {
+    background-color: #4d7cff;
+    color: white;
+}
+
+thead th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tbody td {
+    border-bottom: 1px solid #eee;
+}
+
+table th:nth-child(1),
+table th:nth-child(2),
+table th:nth-child(3) {
+    width: 20%;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
+
+/* 모달 */
+dialog {
+    z-index: 2;
+    border: none;
+    border-radius: 15px;
+    padding: 0;
+    margin: auto;
+    width: 30%;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    
+    width: 100%;
+    height: 180px;
+    max-width: 400px;
+}
+
+#modal-close-btn {
+    padding: 6px;
+    border-radius: 5px;
+}
