@@ -20,7 +20,7 @@
                     <button class="filter-btn" id="dropdown">
                         중요도 <i class="fa-solid fa-caret-down"></i>
                     </button>
-                    <div id="dropdown-menu">
+                    <div id="dropdown-menu" class="hidden">
                         <div class="priority-item">1</div>
                         <div class="priority-item">2</div>
                         <div class="priority-item">3</div>
@@ -67,12 +67,12 @@
             </section>
         </main>
 
-        <div id="modal" style="display: none;">
+        <dialog id="modal">
             <div id="modal-content">
                 <p id="modal-message">이미 완료된 todo입니다.</p>
                 <button id="modal-close-btn">닫기</button>
             </div>
-        </div>
+        </dialog>
         
         <script type="module" src="index.js"></script>
     </div>
