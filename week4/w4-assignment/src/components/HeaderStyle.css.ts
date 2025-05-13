@@ -44,3 +44,46 @@ export const HeaderText = style({
 export const userIcon = style({
     fontSize: '2rem',
 });
+
+export const Hamburger = style({
+    display: "none",
+    cursor: "pointer",
+    "@media": {
+        "screen and (max-width: 768px)": {
+        display: "block",
+        },
+    },
+});
+
+export const DesktopMenu = style({
+    display: "flex",
+    gap: "1rem",
+    color: "#fff",
+    fontWeight: 600,
+    "@media": {
+        "screen and (max-width: 768px)": {
+            display: "none",
+        },
+    },
+});
+
+export const MobileMenu = style({
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    backgroundColor: vars.color.navy,
+    padding: "1.5rem 1rem",
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+    animation: "slideDown 0.3s ease-in-out",
+    color: "#fff",
+    fontWeight: 600,
+});
+
+export const MobileMenuHeader = style({
+    display: "flex",
+    justifyContent: "flex-end",
+    marginBottom: "1rem",
+});
