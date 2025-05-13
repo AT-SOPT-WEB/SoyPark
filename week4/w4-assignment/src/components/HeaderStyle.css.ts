@@ -1,6 +1,5 @@
-import { style } from "@vanilla-extract/css"
+import { style, keyframes } from "@vanilla-extract/css"
 import { vars } from '../styles/theme.css';
-
 
 export const HeaderContainer = style({
     display: 'flex',
@@ -45,12 +44,13 @@ export const userIcon = style({
     fontSize: '2rem',
 });
 
-export const Hamburger = style({
+export const MenuIcon  = style({
     display: "none",
     cursor: "pointer",
+
     "@media": {
         "screen and (max-width: 768px)": {
-        display: "block",
+            display: "block",
         },
     },
 });
@@ -58,8 +58,10 @@ export const Hamburger = style({
 export const DesktopMenu = style({
     display: "flex",
     gap: "1rem",
-    color: "#fff",
-    fontWeight: 600,
+    color: vars.color.white,
+    fontWeight: 'bold',
+    fontSize: 'large',
+
     "@media": {
         "screen and (max-width: 768px)": {
             display: "none",
@@ -69,21 +71,43 @@ export const DesktopMenu = style({
 
 export const MobileMenu = style({
     position: "absolute",
-    top: 0,
+    top: "100px",
     left: 0,
     width: "100%",
     backgroundColor: vars.color.navy,
-    padding: "1.5rem 1rem",
+    padding: "2rem",
+
     display: "flex",
     flexDirection: "column",
-    gap: "1rem",
-    animation: "slideDown 0.3s ease-in-out",
-    color: "#fff",
-    fontWeight: 600,
+    gap: "2rem",
 });
 
-export const MobileMenuHeader = style({
-    display: "flex",
-    justifyContent: "flex-end",
-    marginBottom: "1rem",
+export const MobileText = style({
+    fontSize: 'small',
+    fontWeight: 'bold',
+
+    selectors: {
+        '&:hover': {
+            color: vars.color.lightBlue,
+            cursor: 'pointer',
+        },
+    }
+})
+
+const menuSlideOpen = keyframes({
+    "0%": { opacity: 0, transform: "translateY(-20px)" },
+    "100%": { opacity: 1, transform: "translateY(0)" },
+});
+
+const menuSlideClose = keyframes({
+    "0%": { opacity: 0, transform: "translateX(-20px)" },
+    "100%": { opacity: 1, transform: "translateX(0)" },
+});
+
+export const slideOpen = style({
+    animation: `${menuSlideOpen} 0.3s ease-in-out`,
+});
+
+export const slideClose = style({
+    animation: `${menuSlideClose} 0.3s ease-in-out`,
 });

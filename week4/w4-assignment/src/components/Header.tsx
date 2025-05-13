@@ -38,37 +38,36 @@ const Header = () => {
     }
 
     return (
-    <header className={s.HeaderContainer}>
-      <div className={s.LeftText}>
-        {/* 햄버거 메뉴 아이콘 */}
-        <div className={s.Hamburger} onClick={() => setIsMenuBarOPen(true)}>
-          <IoMenu size={28} color="#fff" />
-        </div>
-        <nav className={s.DesktopMenu}>
-          <h1 onClick={() => handleNavigate("me")}>내 정보</h1>
-          <h1 onClick={() => handleNavigate("search")}>SOPT 회원 조회하기</h1>
-          <h1 onClick={handleLogout}>로그아웃</h1>
-        </nav>
-      </div>
+        <header className={s.HeaderContainer}>
+            <div className={s.LeftText}>
+                <div className={s.MenuIcon} onClick={() => setIsMenuBarOPen(prev => !prev)}>
+                    {isMenuBarOPen ? (
+                        <IoClose size={28} color="white" />
+                    ) : (
+                        <IoMenu size={28} color="white" /> 
+                    )}
+                </div>
+                <nav className={s.DesktopMenu}>
+                    <h1 className={s.HeaderText} onClick={() => handleNavigate("me")}>내 정보</h1>
+                    <h1 className={s.HeaderText} onClick={() => handleNavigate("search")}>SOPT 회원 조회하기</h1>
+                    <h1 className={s.HeaderText} onClick={handleLogout}>로그아웃</h1>
+                </nav>
+            </div>
 
-      <div className={s.RightText}>
-        <FaRegUser className={s.userIcon} />
-        <h1>{data?.data?.nickname}</h1>
-      </div>
+            <div className={s.RightText}>
+                <FaRegUser className={s.userIcon} />
+                <h1 className={s.HeaderText}>{data?.data?.nickname}</h1>
+            </div>
 
-      {/* 모바일 메뉴 - 슬라이드 다운 */}
-      {isMenuBarOPen && (
-        <div className={s.MobileMenu}>
-          <div className={s.MobileMenuHeader}>
-            <IoClose size={28} onClick={() => setIsMenuBarOPen(false)} />
-          </div>
-          <h1 onClick={() => handleNavigate("me")}>내정보</h1>
-          <h1 onClick={() => handleNavigate("search")}>SOPT 회원 조회하기</h1>
-          <h1 onClick={handleLogout}>로그아웃</h1>
-        </div>
-      )}
-    </header>
-  );
+            {isMenuBarOPen && (
+                <div className={`${s.MobileMenu} ${isMenuBarOPen ? s.slideOpen : s.slideClose}`}>
+                    <h1 className={s.MobileText} onClick={() => handleNavigate("me")}>내정보</h1>
+                    <h1 className={s.MobileText} onClick={() => handleNavigate("search")}>SOPT 회원 조회하기</h1>
+                    <h1 className={s.MobileText} onClick={handleLogout}>로그아웃</h1>
+                </div>
+            )}
+        </header>
+    );
 };
 
 export default Header;
