@@ -45,7 +45,24 @@ export const btnStyle = style({
     border: 'none',
     borderRadius: '.5rem',
     fontSize: '1.5rem',
+    color: 'white',
+    transition: "background-color 0.3s ease",
 })
+
+export const btnActive = style({
+    backgroundColor: vars.color.navy,
+
+    selectors: {
+        '&:hover': {
+            backgroundColor: vars.color.blue,
+        },
+    }
+});
+
+export const btnInactive = style({
+    backgroundColor: vars.color.gray,
+    cursor: "not-allowed",
+});
 
 export const linkStyle = style({
     fontSize: '1.5rem',

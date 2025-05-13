@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css"
 import { vars } from '../../styles/theme.css';
 
-
 export const errorMessageStyle = style({
     fontSize: '1.4rem',
     color: vars.color.red,
     marginTop: '1.5rem',
-    marginBottom: '1rem',
+    marginBottom: '.5rem',
+    alignSelf: 'flex-start',
 })
 
 export const LinkText = style({
@@ -17,7 +17,6 @@ export const LinkText = style({
 export const inputContainer = style({
     position: 'relative',
     width: '100%',
-    marginBottom: '1rem'
 });
 
 export const iconBtn = style({
@@ -29,3 +28,11 @@ export const iconBtn = style({
     color: '#666',
     fontSize: '1.7rem',
 });
+
+export const Text = style({
+    fontSize: 'large',
+    fontWeight: 'bold',
+    marginTop: '0',
+    marginBottom: '1.5rem',
+    alignSelf: 'flex-start',
+})
