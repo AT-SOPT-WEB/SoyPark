@@ -29,3 +29,21 @@ export type ResponseSignin = {
         userId: number,
     } | null
 }
+
+// 내 정보 조회
+export type ResponseMyInfo ={
+    success: boolean;
+    code: string;
+    message: string;
+    data: {
+        nickname: string,
+    } | null
+}
+
+// 닉네임 수정
+export type PatchMyNicname ={
+    success: boolean;
+    code: string;
+    message: string;
+    data: null;
+}
