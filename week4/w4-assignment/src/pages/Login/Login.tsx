@@ -19,6 +19,7 @@ const LoginPage = () => {
                 localStorage.setItem(LOCAL_STORAGE_KEY.accessToken, response.data.userId.toString());
                 alert("로그인 성공");
                 navigate("/mypage/info");
+                window.location.reload();
 
             } else {
                 alert("로그인 실패: " + response.message);
