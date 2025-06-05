@@ -9,7 +9,7 @@ import { IoMenu, IoClose } from "react-icons/io5";
 
 const Header = () => {
     const navigate = useNavigate();
-    const [isMenuBarOPen, setIsMenuBarOPen] = useState(false);
+    const [isMenuBarOpen, setIsMenuBarOpen] = useState(false);
     const [data, setData] = useState<ResponseMyInfo | null>(null);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const Header = () => {
     }, []);
 
     const handleNavigate = (select: string) => {
-        setIsMenuBarOPen(false);
+        setIsMenuBarOpen(false);
         if(select === 'me') {
             navigate("/mypage/info");
         } else if (select === 'search'){
@@ -32,7 +32,7 @@ const Header = () => {
 
     const handleLogout = () =>{
         localStorage.removeItem(LOCAL_STORAGE_KEY.accessToken);
-        setIsMenuBarOPen(false);
+        setIsMenuBarOpen(false);
         alert("로그아웃 완료!");
         navigate("/login");
     }
@@ -40,17 +40,17 @@ const Header = () => {
     return (
         <header className={s.HeaderContainer}>
             <div className={s.LeftText}>
-                <div className={s.MenuIcon} onClick={() => setIsMenuBarOPen(prev => !prev)}>
-                    {isMenuBarOPen ? (
+                <div className={s.MenuIcon} onClick={() => setIsMenuBarOpen(prev => !prev)}>
+                    {isMenuBarOpen ? (
                         <IoClose size={28} color="white" />
                     ) : (
                         <IoMenu size={28} color="white" /> 
                     )}
                 </div>
                 <nav className={s.DesktopMenu}>
-                    <h1 className={s.HeaderText} onClick={() => handleNavigate("me")}>내 정보</h1>
-                    <h1 className={s.HeaderText} onClick={() => handleNavigate("search")}>SOPT 회원 조회하기</h1>
-                    <h1 className={s.HeaderText} onClick={handleLogout}>로그아웃</h1>
+                    <button className={s.HeaderText} onClick={() => handleNavigate("me")}>내 정보</button>
+                    <button className={s.HeaderText} onClick={() => handleNavigate("search")}>SOPT 회원 조회하기</button>
+                    <button className={s.HeaderText} onClick={handleLogout}>로그아웃</button>
                 </nav>
             </div>
 
@@ -59,8 +59,8 @@ const Header = () => {
                 <h1 className={s.HeaderText}>{data?.data?.nickname}</h1>
             </div>
 
-            {isMenuBarOPen && (
-                <div className={`${s.MobileMenu} ${isMenuBarOPen ? s.slideOpen : s.slideClose}`}>
+            {isMenuBarOpen && (
+                <div className={`${s.MobileMenu} ${isMenuBarOpen ? s.slideOpen : s.slideClose}`}>
                     <h1 className={s.MobileText} onClick={() => handleNavigate("me")}>내정보</h1>
                     <h1 className={s.MobileText} onClick={() => handleNavigate("search")}>SOPT 회원 조회하기</h1>
                     <h1 className={s.MobileText} onClick={handleLogout}>로그아웃</h1>

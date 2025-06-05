@@ -18,8 +18,6 @@ const SearchPage = () => {
                 if (nicknameList.length === 0) {
                     alert("일치하는 회원이 없습니다.");
                     setResult([]);
-                } else {
-                    setResult(nicknameList);
                 }
             } 
             else {
@@ -53,9 +51,9 @@ const SearchPage = () => {
                     확인
                 </button>
 
-                {result.map((result, idx) => {
+                {result.map((result) => {
                     return (
-                        <div key={idx}>
+                        <div key={result}>
                             <h1 className={M.resultText}>{result}</h1>
                         </div>
                     )

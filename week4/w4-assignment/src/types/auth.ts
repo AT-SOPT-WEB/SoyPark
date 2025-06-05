@@ -1,3 +1,5 @@
+import type { BaseResponse } from "./baseResponse";
+
 //회원가입
 export type RequestSignup = {
     loginId: string;
@@ -5,15 +7,10 @@ export type RequestSignup = {
     nickname: string;
 }
 
-export type ResponseSignup = {
-    success: boolean;
-    code: string;
-    message: string;
-    data: {
-        userId: number,
-        nickname: string,
-    } | null
-}
+export type ResponseSignup = BaseResponse<{
+    userId: number;
+    nickname: string;
+}>;
 
 //로그인
 export type RequestSignin = {
@@ -21,29 +18,14 @@ export type RequestSignin = {
     password: string;
 }
 
-export type ResponseSignin = {
-    success: boolean;
-    code: string;
-    message: string;
-    data: {
-        userId: number,
-    } | null
-}
+export type ResponseSignin = BaseResponse<{
+    userId: number;
+}>;
 
 // 내 정보 조회
-export type ResponseMyInfo ={
-    success: boolean;
-    code: string;
-    message: string;
-    data: {
-        nickname: string,
-    } | null
-}
+export type ResponseMyInfo = BaseResponse<{
+    nickname: string;
+}>;
 
 // 닉네임 수정
-export type PatchMyNicname ={
-    success: boolean;
-    code: string;
-    message: string;
-    data: null;
-}
+export type PatchMyNickname = BaseResponse<null>;

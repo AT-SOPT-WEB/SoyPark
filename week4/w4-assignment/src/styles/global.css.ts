@@ -15,3 +15,11 @@ globalStyle('body', {
 globalStyle('main', {
     width: '100%',
 });
+
+globalStyle('button', {
+    all: 'unset',
+    cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+});

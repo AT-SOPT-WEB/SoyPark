@@ -119,7 +119,7 @@ const SignupPage = () => {
                                 placeholder={"비밀번호"}
                                 className={inputBox}
                             />
-                            <div
+                            <button
                                 onClick={() => setShowPassword(prev => !prev)}
                             >
                                 {showPassword ? (
@@ -127,7 +127,7 @@ const SignupPage = () => {
                                 ) : (
                                     <FaEyeSlash className={S.iconBtn} />
                                 )}
-                            </div>
+                            </button>
                         </div>
                         
                         {/* 비밀번호 확인 입력 */}
