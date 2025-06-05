@@ -2,7 +2,7 @@
 import { css } from '@emotion/react';
 import TabButton from './TabButton';
 
-function Header({ activeTab, setActiveTab }) {
+function Header({ activeTab, onClick }) {
 return (
     <header css={headerStyle}>
         <h2 css={headTextStyle}>숫자야구 || 깃허브 검색 </h2>
@@ -10,12 +10,12 @@ return (
             <TabButton
                 label="깃허브 검색"
                 isActive={activeTab === 'github'}
-                onClick={() => setActiveTab('github')}
+                onClick={() => onClick('github')}
             />
             <TabButton
                 label="숫자야구"
                 isActive={activeTab === 'baseball'}
-                onClick={() => setActiveTab('baseball')}
+                onClick={() => onClick('baseball')}
             />
         </div>
     </header>

@@ -1,14 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
-function CommonInput({ value, onChange, onKeyDown, placeholder }) {
+function CommonInput(props) {
     return (
         <input
             type="text"
-            value={value}
-            onChange={onChange}
-            onKeyDown={onKeyDown}
-            placeholder={placeholder}
+            {...props}
             css={inputStyle}
         />
     );

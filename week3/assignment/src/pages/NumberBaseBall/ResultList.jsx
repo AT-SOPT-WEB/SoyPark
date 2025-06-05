@@ -4,9 +4,9 @@ import { css } from '@emotion/react';
 function ResultList({ resultList }) {
     return (
         <div css={ListWrapper}>
-            {resultList.map((result, index) => (
-                <ul css={listStyle} key={index}>
-                    <li key={index} css={itemStyle}>
+            {resultList.map((result) => (
+                <ul css={listStyle} key={result}>
+                    <li key={result} css={itemStyle}>
                         <span>{result.result}</span>
                     </li>
                 </ul>

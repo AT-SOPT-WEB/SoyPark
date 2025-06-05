@@ -1,5 +1,5 @@
 // 판정 
-function getResult(input, answer) {
+function getRoundResult(input, answer) {
     let strike = 0;
     let ball = 0;
 
@@ -15,4 +15,4 @@ function getResult(input, answer) {
     return `${strike}스트라이크   ${ball}볼`;
 }
 
-export default getResult;
+export default getRoundResult;

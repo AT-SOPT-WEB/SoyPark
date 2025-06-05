@@ -10,12 +10,17 @@ import GlobalStyle from './styles/GlobalStyle'
 function App() {
   const [activeTab, setActiveTab] = useState('github');
 
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <div>
       <GlobalStyle />
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Header activeTab={activeTab} onClick={handleTabClick} />
       <div css={ContentWrapper}>
-        {activeTab === 'github' ? <GithubPage /> : <NumberBasePage />}
+        {activeTab === 'github' && <GithubPage />}
+        {activeTab === 'baseball' && <NumberBasePage />}
       </div>
     </div>
   );
